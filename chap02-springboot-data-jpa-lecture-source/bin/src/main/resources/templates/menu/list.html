@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org"><!-- 타임리프 활용하기(네임스키마 문법 추가) -->
+<head>
+<meta charset="UTF-8">		
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		const successMessage = "[[${ registSuccessMessage }]]";
+		successMessage && alert(successMessage);
+	</script>
+	<div th:replace="common/header.html"></div>
+	<table align="center" border="1">
+		<tr>
+			<th>메뉴번호</th>
+			<th>메뉴이름</th>
+			<th>메뉴가격</th>
+			<th>카테고리코드</th>
+			<th>판매상태</th>
+		</tr>
+		<tr th:each="menu : ${ menuList }">
+			<td th:text="${ menu.menuCode }"></td>
+			<td th:text="${ menu.menuName }"></td>
+			<td th:text="${ menu.menuPrice }"></td>
+			<td th:text="${ menu.categoryCode }"></td>
+			<td th:text="${ menu.orderableStatus }"></td>
+		</tr>
+	</table>
+</body>
+</html>
